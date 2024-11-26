@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Plans</title>
+  </head>
+  <body>
+    <main id="chatbot">
+      <!-- =============Navbar================ -->
+      <nav>
+          <div>
+            <a href="index.html" class="logo" ><img src="./images/logo-l.svg" alt="logo" style="width: 180px;height:50px;"></a>
+
+          </div>
+        <ul class="nav-items">
+          <li class="nav-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html">About</a>
+          </li>
+          <li class="nav-item active">
+            <a href="plans.html">Services</a>
+          </li>
+          <li>
+            <button class="get-started-btn">
+              <a href="plans.html" class="nav-btn"> Get Started </a>
+            </button>
+          </li>
+        </ul>
+        <button class="menu-btn hamburger"><i class="bi bi-list"></i></button>
+        <button class="menu-btn close-menu"><i class="bi bi-x-lg"></i></button>
+      </nav>
+      <!-- =================Services========================= -->
+       <div class="content">
+
+     
+      <header>
+        <h2>Services</h2>
+        <div class="border"></div>
+      </header>
+
+      <article class="product">
+        <section>
+          <h3>Nutrition Plan</h3>
+          <div>
+            <span><i class="bi bi-person-standing"></i></span>
+            <p class="desc">
+             Customized meal plans designed to meet your nutritional needs, improve energy levels, and support a healthy lifestyle effortlessly.
+            </p>
+            <button class="select-btn">select</button>
+          </div>
+        </section>
+        <section>
+          <h3>Workout plan</h3>
+          <div>
+            <span><i class="bi bi-bullseye"></i></span>
+            <p class="desc">
+             Personalized workout routines tailored to your fitness goals, ensuring progress, motivation, and a fun approach to staying active.
+            </p>
+            <button class="select-btn">select</button>
+          </div>
+        </section>
+        <section>
+          <h3>Nutrition and Workout Plan</h3>
+          <div>
+            <span><i class="bi bi-award-fill"></i></span>
+            <p class="desc">
+              A holistic approach combining balanced meal plans and effective workout strategies for comprehensive health and fitness success.
+            </p>
+            <button class="select-btn">select</button>
+          </div>
+        </section>
+      </article>
+  </div>
+      <!-- ============Chatbot======== -->
+
+      <div class="chatbot-container hide">
+        <div class="chatbot-header">
+          <span>
+              <i class="bi bi-robot"></i>
+          </span>
+         <span> <h4>Chatbot</h4></span>
+        </div>
+       <div class="responses">
+          <span class="response user"> Hi,There!</span>
+          <span class="response bot"> Hi,There!Naani</span>
+         
+        </div>
+        <form action="#">
+          <div>
+            <input type="text" class="input" />
+          </div>
+          <div>
+            <button class="send-btn"><i class="bi bi-send"></i></button>
+          </div>
+        </form>
+      </div>
+      <button class="chat-btn"><i class="bi bi-chat"></i></button>
+      </div>
+    </main>
+    <!-- ==================Footer===================== -->
+    <footer class="chatfooter">
+      <div class="links">
+        <ul class="footer-items">
+          <li class="footer-item">
+            <a href="index.html" class="logo"
+              ><img
+                src="./images/logo-w.svg"
+                alt="logo"
+                style="width: 200px; height:50px"
+            />
+
+          </li>
+          <li class="footer-item nav-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="footer-item nav-item">
+            <a href="about.html">About</a>
+          </li>
+          <li class="footer-item nav-item">
+            <a href="plans.html">Services</a>
+          </li>
+          <li>
+            <button class="get-started-btn">
+              <a href="plans.html" class="nav-btn"> Get Started </a>
+            </button>
+          </li>
+        </ul>
+
+        <div class="nav-item social-links">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="copyrights">
+        <p>&copy;<span class="year"></span>Copyright Lifestyle Advisor</p>
+      </div>
+    </footer>
+    <script type="module" src="./scripts/app.js"></script>
+    <script src="./scripts/chat.js"></script>
+  </body>
+</html>
