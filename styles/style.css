@@ -567,10 +567,7 @@ article.product section {
   padding: 1rem;
   border: none;
 }
-article.product section span i {
-  color: #1a1818;
-  font-size: 1.5rem;
-}
+
 article.product section p {
   padding: 1rem 0;
 }

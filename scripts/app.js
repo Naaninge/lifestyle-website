@@ -35,13 +35,26 @@ const goToNext = () => {
   sliderImages.innerHTML = `<img src=${url} alt=${alt}>`;
 };
 
-// Toggle Menu
+//Toggle Menu
 menu.addEventListener("click", () => {
   menu.classList.add("hide");
   close.classList.add("show");
   navItems.classList.add("show");
   nav.style.background = "#FFF";
 });
+
+
+// $(".hamburger").click(function () {
+//   $(".hamburger").hide();
+//   $(".close-menu").show();
+//   $(".nav-items").show()
+// })
+
+// $(".close-menu").click(function () {
+//   $(".close-menu").hide()
+//   $(".hamburger").show()
+//   $(".nav-items").hide()
+// })
 
 close.addEventListener("click", () => {
   close.classList.remove("show");
@@ -72,3 +85,19 @@ window.addEventListener("DOMContentLoaded", () => {
   fixedNav();
   fetchData(api_url);
 });
+
+
+// jQuery
+$(document).ready(function () {
+  $(".chat-btn").click(function () {
+    $(".chatbot-container").toggle();
+    
+  });
+  $(".home-slider").load(function () {
+    $(".home-slider .images").fadeIn("slow",0.15)
+  })
+});
+
+
+
+
