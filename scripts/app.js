@@ -1,21 +1,20 @@
 import imageList from "./imageData.js";
-import {getElement,fetchData} from "./utils.js"
+import { getElement } from "./utils.js";
 
 const menu = getElement(".hamburger");
 const close = getElement(".close-menu");
 const navItems = getElement(".nav-items");
-const sliderImages = getElement(".slider .slider-row .images");
+const sliderImages = getElement(".images");
 const nav = getElement("main#about nav");
-const navbar = getElement(".nav");
 const span = getElement(".year");
-
-
-
-const api_url = "https://api.api-ninjas.com/v1/exercises?muscle=biceps";
 
 let count = 0;
 const sliderCount = imageList.length;
-const { url, alt } = imageList[count];
+sliderImages.innerHTML = `<img src=${imageList[0].url} alt=${imageList[0].alt}/>`;
+
+if (sliderCount === 0) {
+  console.error("Image list is empty. Check `imageData.js`.");
+}
 
 // automatic slider
 const autoSlider = () => {
@@ -31,8 +30,11 @@ const goToNext = () => {
   } else {
     count++;
   }
-  const { url, alt } = imageList[count];
-  sliderImages.innerHTML = `<img src=${url} alt=${alt}>`;
+  const { url, alt } = imageList[count] || {
+    url: "",
+    alt: "Image unavailable",
+  };
+  sliderImages.innerHTML = `<img src=${url} alt=${alt}/>`;
 };
 
 //Toggle Menu
@@ -43,19 +45,6 @@ menu.addEventListener("click", () => {
   nav.style.background = "#FFF";
 });
 
-
-// $(".hamburger").click(function () {
-//   $(".hamburger").hide();
-//   $(".close-menu").show();
-//   $(".nav-items").show()
-// })
-
-// $(".close-menu").click(function () {
-//   $(".close-menu").hide()
-//   $(".hamburger").show()
-//   $(".nav-items").hide()
-// })
-
 close.addEventListener("click", () => {
   close.classList.remove("show");
   menu.classList.remove("hide");
@@ -63,41 +52,32 @@ close.addEventListener("click", () => {
   nav.style.background = "transparent";
 });
 
-// get the offset position of the navbar
-const navOffset = navbar.offsetTop;
-
-// fixed navbar
-const fixedNav = () => {
-  if (window.scrollY >= navOffset) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-};
 
 //get the current the year
 const year = new Date().getFullYear();
 span.textContent = `${year}`;
 
 window.addEventListener("DOMContentLoaded", () => {
-  sliderImages.innerHTML = `<img src=${url} alt=${alt}>`;
-  autoSlider();
-  fixedNav();
-  fetchData(api_url);
+  if (sliderImages && imageList[0]) {
+    const { url, alt } = imageList[0] || { url: "", alt: "Image unavailable" };
+    sliderImages.innerHTML = `<img src="${url}" alt="${alt}">`;
+    autoSlider();
+  }
 });
-
 
 // jQuery
-$(document).ready(function () {
-  $(".chat-btn").click(function () {
-    $(".chatbot-container").toggle();
-    
+
+// add a background to the home nav on scroll
+$(window).ready(function () {
+  $(window).scroll(function () {
+    let scroll = $(window).scrollTop();
+    if (scroll > 20) {
+      $("#home nav").css("background", "white");
+      $("#home nav .nav-item  a").css("color", "var(--primary-color)");
+    } else {
+      $("#home nav").css("background", "transparent");
+      $("#home nav .nav-item  a").css("color", "white");
+    }
   });
-  $(".home-slider").load(function () {
-    $(".home-slider .images").fadeIn("slow",0.15)
-  })
 });
-
-
-
 
