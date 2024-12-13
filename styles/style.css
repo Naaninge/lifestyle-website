@@ -178,10 +178,12 @@ button.get-started-btn {
   font-size: 0.75rem;
   border-radius: 1rem;
   justify-self: flex-end;
+  transition: transform 1000ms;
 }
 button.get-started-btn:hover {
   background-color: var(--tertiary-color);
-  transform: translateY(-5px);
+  transform: translateY(-0.75rem);
+   transition: transform 250ms;
 }
 button.get-started-btn a {
   color: #fff;
@@ -412,27 +414,55 @@ tfoot tr {
   border-bottom-right-radius: 8px;
 }
 
-.trainers-container{
+.country{
   padding-top: 1rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  
+  
 }
 
-.trainer-container{
+.flag-div{
+  width: 130px;
+  height: 70px;
+   
+ 
+}
+.flag{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: cover;
+  border-radius: 8px;
+}
+
+.country > div{
   padding: 1rem;
   border-radius: 8px;
-  background-color: var(--tertiary-color);
+
+}
+
+
+/* ***************** Video************************* */
+
+.media{
+  width: 90%;
+  padding: 3rem 5rem;
+  margin: 0 auto;
   
-
+}
+.media div{
+  width: 100%;
+}
+.media video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.trainer-img{
-  height: 50px;
-  width: 50px;
-  border: 2px solid var(--sepia);
-  border-radius:50% ;
-}
+
 /* ***************** About Page/Chat Page *********************/
 
 main#about nav,
@@ -602,6 +632,7 @@ footer {
   position: relative;
   bottom: 0;
   padding-bottom: 1rem;
+  
 }
 
 footer .links {
@@ -855,6 +886,12 @@ footer.chat-footer {
     flex-direction: column;
   }
 
+  .media{
+  width: 100%;
+  height: 500px;
+  padding: 2rem 2rem;
+  }
+
   nav div a#logo img {
     width: 160px;
     height: 50px;
@@ -896,6 +933,10 @@ footer.chat-footer {
     color: white;
   }
   #home button.get-started-btn {
+    transition-property: background-color;
+    transition-duration: .4s;
+    transition-timing-function:  ease-in-out;
+    transition-delay: .2s;
     border: 1px solid var(--primary-color);
   }
 
@@ -1096,34 +1137,18 @@ footer.chat-footer {
     margin: 3rem;
   }
   .services-container.carousel {
-    flex-direction: column;
     width: 100vw;
-    height: 700px;
+  
   }
 
   .services-container div.card {
-    width: 100%;
+    width: 200px;
     font-size: 0.5rem;
     padding: 1.5rem;
     
   }
 
-  .services-container .group {
-    flex-direction: column;
-    height: 400px;
-    gap: 0.5rem;
-  }
-  .services-container div {
-    height: 210px;
-  }
-  @keyframes scrolling {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  }
+ 
   footer .links {
     flex-direction: column;
     align-items: center;

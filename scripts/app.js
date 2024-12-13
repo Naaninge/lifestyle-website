@@ -37,6 +37,25 @@ const goToNext = () => {
   sliderImages.innerHTML = `<img src=${url} alt=${alt}/>`;
 };
 
+
+
+
+// $(document).ready(function () {
+//   $(".hamburger").click(function () {
+//     $(".hamburger").hide()
+//     $(".close-menu").show()
+//     $(".nav-items").show(2000)
+    
+//   })
+
+//    $(".close-menu").click(function () {
+//      $(".close-menu").hide();
+//      $(".hamburger").show();
+//      $(".nav-items").hide(2000);
+//    });
+  
+// })
+
 //Toggle Menu
 menu.addEventListener("click", () => {
   menu.classList.add("hide");

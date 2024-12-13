@@ -9,40 +9,45 @@ chatBtn.addEventListener("click", () => {
   chatContainer.classList.toggle("hide");
 });
 
+// this list contains countries where the company operates
+const clientCountries = [
+  "Namibia",
+  "South Africa",
+  "Canada",
+  "Netherlands",
+  "Botswana",
+];
 
-// Ajax
-const URL = "https://randomuser.me/api/";
+const URL = "https://restcountries.com/v3.1/all";
 
 $(document).ready(function () {
-  console.log('page has been loaded')
+  console.log("page has been loaded");
   $.ajax({
-    url:URL,
-    method: 'get',
-    dataType: 'json',
+    url: URL,
+    method: "get",
+    dataType: "json",
     success: function (data) {
-      const users = data.results
-
-    
-      
-    //   for (let i = 0; i < data.results.length; i++){
-    //     let user = data.results[i]
-    //     console.log(user)
-    //  }
-
-
-      users.forEach(user => {
-           console.log(user.name)
-           $(".trainer-name").text(user.name.first);
-           $(".trainer-title").text(user.name.title)
-           $(".trainer-image").html(`<img class="trainer-img"  src=${user.picture.thumbnail} alt=${user.name.first}>`);
+      let countries = "";
+      for (let i = 0; i < data.length - 1; i++) {
+        const {
+          name: { common },
+          flags: { png },
+        } = data[i];
         
-      })
-      
-     
-  
+        if (clientCountries.includes(common)) {
+          countries += `<div>
+            <p class="name">${common} </p>
+            <div class="flag-div">
+            <img src=${png} alt="${common} flag" class="flag">
+            </div>
+          </div>`;
+        }
+      }
+
+      $(".country").html(countries);
     },
     error: function (err) {
-      console.log(err)
-    }
-  })
-})
+      console.log(err);
+    },
+  });
+});
